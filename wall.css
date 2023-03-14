@@ -1,0 +1,385 @@
+#hider{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: url(Images/black\ transparent\ bg.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    position: fixed;
+}
+
+#phrhider{
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 2vw;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+#xumm-hider{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: url(Images/black\ transparent\ bg.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    position: fixed;
+}
+
+.wall-container{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    min-height: 80vh;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.wall-form{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 2vw;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.phrase-head{
+    width: fit-content;
+}
+
+.wall-form h3{
+    color: #555;
+    font-weight: 900;
+    width: fit-content;
+    display: inline-block;
+}
+
+.wall-txt{
+    color: #555;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.wall-form textarea{
+    border: 0;
+    outline: none;
+    background: #ffffff;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    resize: vertical;
+    outline: 2px solid rgb(225, 225, 225);
+    overflow: auto;
+    height: 13vh;
+}
+
+
+.wall-form button{
+    padding: 16px;
+    background: #1d5aaf;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 200px;
+    margin: 20px auto 0;
+    border-radius: 10px;
+}
+
+#cancle{
+    outline: none;
+    border: none;
+    padding: 16px;
+    background: #da462c;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.wrapper{
+    height: 80px;
+    width: auto
+}
+
+.phr-nav, p{
+    text-align: center;
+}
+
+.wrapper .phr-nav{
+    display: flex;
+    flex: 1;
+    height: 50%;
+}
+
+.wrapper .phr-nav li{
+    list-style: none;
+    flex: 1;
+    font-size: small;
+    height: 100%;
+    border-bottom: 2px solid lightgray;
+}
+
+.wrapper .phr-nav li p{
+    cursor: pointer;
+    height: 100%;
+    color: #555;
+    display: inline-block;
+    transition: 0.5s ease;
+    font-weight: 800;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.wrapper .phr-nav li .active{
+    color: #1d5aaf;
+    height: 40px;
+    border-bottom: 2px solid #1d5aaf;
+    width: 100%;
+    border-radius: 3px;
+    transition: 0.2s ease;
+}
+
+.wrapper .phr-nav li :hover{
+    width: 100%;
+    height: 40px;
+    transition: 0.2s ease;
+}
+
+.phr-nav{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    height: 50px;
+    position: relative;
+}
+
+.xwrapper{
+    height: 80px;
+    width: auto
+}
+
+.xphr-nav, p{
+    text-align: center;
+}
+
+.xwrapper .xphr-nav{
+    display: flex;
+    flex: 1;
+    height: 50%;
+}
+
+.xwrapper .xphr-nav li{
+    list-style: none;
+    flex: 1;
+    font-size: small;
+    height: 100%;
+    border-bottom: 2px solid lightgray;
+}
+
+.xwrapper .xphr-nav li p{
+    cursor: pointer;
+    height: 100%;
+    color: #555;
+    display: inline-block;
+    transition: 0.5s ease;
+    font-weight: 800;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.xwrapper .xphr-nav li .xactive{
+    color: #1d5aaf;
+    height: 40px;
+    border-bottom: 2px solid #1d5aaf;
+    width: 100%;
+    border-radius: 3px;
+    transition: 0.2s ease;
+}
+
+.xwrapper .xphr-nav li :hover{
+    width: 100%;
+    height: 40px;
+    transition: 0.2s ease;
+}
+
+.xphr-nav{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    height: 50px;
+    position: relative;
+}
+
+.phr-drop{
+    padding-top: 20px;
+    outline: block;
+}
+
+.xphr-drop{
+    padding-top: 20px;
+    display: block;
+}
+
+.key-drop{
+    height: auto;
+    outline: none;
+}
+
+.family-drop{
+    height: auto;
+    display: none;
+}
+
+input{
+    width: 100%;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.phr-info{
+    color: rgba(0, 0, 0, 0.659);
+    font-family: Tahoma, sans-serif;
+    padding-left: 1vw;
+}
+
+.private-drop{
+    height: auto;
+    outline: none;
+}
+
+.secret-drop{
+    height: auto;
+    display: none;
+}
+
+#private{
+    height: 50px;
+    border: 0;
+    outline: none;
+    outline: 2px solid rgb(225, 225, 225);
+    margin-bottom: 10px;
+}
+
+#load{
+    width: 100%;
+    height: 100%;
+   background-image: url(images/black\ transparent\ bg.png);
+   background-size: cover;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   position: fixed;
+   z-index: 100;
+}
+
+.loader{
+    width: 200px;
+    height: 50px;
+   background: white;
+   box-shadow: 0 0 30px black;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+}
+
+@media screen and (max-width: 500px){
+.loader-bg {
+    width: 100%!important;
+}
+}
+
+.loader-gif{
+    background: url(Gifs/Three\ rectangles.gif) no-repeat center center;
+    width: 100px;
+    height: 25px;
+}
+
+.loader-txt{
+    float: right;
+    margin-right: 40px;
+    color: #00ff66;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+}
+
+#err{
+    width: 100%;
+    height: 100%;
+   background-color: rgb(4, 0, 23);
+   background-size: cover;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   position: fixed;
+   z-index: 200;
+}
+
+.error{
+    background: url(Gifs/three\ squares.gif) no-repeat center center;
+    width: 100%;
+    height: 100%;
+}
+
+#family-pass{
+    height: 50px;
+    border: 0;
+    outline: block;
+    outline: 2px solid rgb(225, 225, 225);
+    margin-bottom: 3px;
+}
+
+.secret{
+    height: 50px;
+    border: 0;
+    outline: none;
+    outline: 2px solid rgb(225, 225, 225);
+    margin-bottom: 3px;
+}
+
+.label{
+    position: relative;
+    height: auto;
+    width: auto;
+}
+
+#key-pass{
+    border: 0;
+    outline: none;
+    background: #ffffff;
+    font-size: 16px;
+    outline: 2px solid rgb(225, 225, 225);
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.pass-icon{
+    vertical-align: middle;
+    right: 0;
+    width: 24px;
+    cursor: pointer;
+}

